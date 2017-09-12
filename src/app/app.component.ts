@@ -72,6 +72,18 @@ export class AppComponent implements OnInit {
     this.insufficentsFunds = false;
     this.destinationAddress = '';
     this.checkAngularCryptoConfig();
+    var a, b: any;
+
+    a = {
+      address: '12345678',
+      value: 1
+    };
+    b = {
+      address: '12345678',
+      value: 1
+    };
+
+    console.log('@@@', _.uniqBy([a, b], 'address'));
   }
 
   checkAngularCryptoConfig() {
@@ -130,6 +142,7 @@ export class AppComponent implements OnInit {
       if (err) return this.showMessage(err, 3);
 
       this.scanResults = res;
+      console.log('##########', res)
       console.log('## Total balance:', this.scanResults.balance.toFixed(8) + ' BTC');
 
       this.showMessage('Search completed', 2);
